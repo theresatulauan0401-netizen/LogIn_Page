@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit bootstrap="tests/bootstrap.php" colors="true" cacheDirectory=".phpunit.cache">
+    <testsuites>
+        <testsuite name="unit"><directory>tests</directory></testsuite>
+    </testsuites>
+    <php>
+        <!-- Integration tests recreate this database from database/database.sql on EVERY test.
+             The name MUST contain "test". Uses DB_HOST/DB_USER/DB_PASS from your .env. -->
+        <env name="TEST_DB_NAME" value="bus_reservation_test"/>
+    </php>
+</phpunit>
