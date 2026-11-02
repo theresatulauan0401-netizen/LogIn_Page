@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Express - Contact Page</title>
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="contact-page">
+    <header>
+        <!--top navigation -->
+        <div class="top-nav">
+            <div class="top-left">
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">Terms</a>
+                <a href="policies.html">Policies</a>
+            </div>
+            <div class="top-right">
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            </div>
+
+        <nav class="main-bar">
+            <div class="logo">
+                <img src="../assets/images/javabus.jpg" alt="Java Express Logo">
+                <span>Java Express</span>
+            </div>
+            <div class="main-nav">
+                <a href="../index.html">Home</a>
+                <a href="managebooking.html">Manage Booking</a>
+                <a href="help.html">Help</a>
+                <a href="../login.html">Login</a>
+                <a href="../signup.html">Sign Up</a>
+            </div>
+        </nav>
+    </header>
+
+    <section class="help">
+        <div class="container">
+            <p class="sub">Contact Us</p>
+            <h1>A real team us ready to help. </h1>
+            <p class="description"> Reach customer care for booking, baggage, terminal, accessibility, and refun support.</p>
+        </div>
+    </section>
+
+    <main class="contact-container">
+        <section class="contact-card">
+            <h2>Send us a message!</h2>
+
+            <form action="#" method="POST">
+
+            <!--Row 1: NAME & EMAIL-->
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="fullname">Full Name:</label>
+                    <input type="text" id="fullname" placeholder="Your name" required>
+                </div>
+            <div class="input-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" placeholder="juandelacruz@.com" required>
+                </div>
+            </div>
+
+            <!--Row 2: TOPIC & BOOKING PROBLEM-->
+            <div class="form-row">
+                <div class="input-group">
+                    <label for="TOPIC">Topic:</label>
+                    <select id="topic">
+                    <option value="booking-help">Booking Help</option>
+                    <option value="booking-help">Booking Help</option>
+                    <option value="booking-help">Booking Help</option>
+                    <option value="booking-help">Booking Help</option>
+                </select>
+                </div>
+            <div class="input-group">
+                    <label for="booking-ref">Booking reference: <span>(Optional)</span></label>
+                    <input type="text" id="booking-ref" placeholder="e.g [Booking Code]" required>
+                </div>
+            </div>
+
+            <!--Row 3: MESSAGE TEXT-->
+            <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="6" placeholder="How can we help?"></textarea>
+                </div>
+
+            <!--Action Button-->
+            <div class="form-action">
+                    <button type="submit" class="sent">Send Message</button>
+                    <span class="response-time">We'll reply within [response time].</span>
+                </div>
+            <div class="form-note">
+                <p>Note: After sendig, show confirmation with a ticket number.</p>
+            </div>
+
+        </form>
+        </section>
+
+        <!--Right Column: Support Channels-->
+        <aside class="support-channels">
+
+            <!--Channel 1: Hotline-->
+            <div class="channel-card">
+                <div class="icon-cox"></div>
+                <div class="hotline-info">
+                    <span class="hotline-label">Customer Hotline</span>
+                    <strong>[Phone Number]</strong>
+                    <span class="hotline-hours">Open [days and hours]</span>
+                </div>
+            </div>
+
+            <!--Channel 2: Email-->
+            <div class="channel-card">
+                <div class="icon-cox"></div>
+                <div class="email-info">
+                    <span class="email-label">Email Support</span>
+                    <strong>[support email]</strong>
+                    <span class="email-hours">Replies whithin [response time]</span>
+                </div>
+            </div>
+
+            <!--Channel 3: Live Chats-->
+            <div class="channel-card">
+                <div class="icon-cox"></div>
+                <div class="live-info">
+                    <span class="live-label">Live Chat</span>
+                    <strong>[Phone Number]</strong>
+                    <span class="live-hours">Available [days and hours]</span>
+                </div>
+            </div>
+  
+        </aside>
+    </main>
+</body>
+</html>

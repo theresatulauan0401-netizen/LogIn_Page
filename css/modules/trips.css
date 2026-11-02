@@ -1,0 +1,340 @@
+/*this isfor the trip page*/
+.trips-page{
+    background-color: #00296B;
+    color: #ffffff;
+}
+.trips-page .main-content{
+    display: flex;
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 0 20px;
+    gap: 40px;
+}
+.trips-page .filters-sidebar{
+    width: 240px;
+    background-color:#00296B;
+    border: 1px solid #00296B;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.trips-page .filters{
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+.trips-page .filters label{
+    display: block;
+    margin-bottom: 8px;
+    font-size: 14px;
+    font-weight: bold;
+}
+.trips-page .time-input{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px; 
+}
+.trips-page .time-input input{
+    background-color: #ffffff;
+    padding: 2px 5px;
+    border-radius: 2px;
+}
+.trips-page .option-list{
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 15px;
+    font-size: 13px;
+}
+.trips-page .option-list label{
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+.trips-page .apply{
+    background-color: #FDC500;
+    color: #000000;
+    border: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    cursor: pointer;
+    margin-top: 10px;
+    align-self: flex-start;
+}
+.trips-page .trip-selection{
+    flex: 1;
+}
+.trips-page .section-title{
+    text-align: center;
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+.trips-page .trips-list{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.trips-page .trip-card{
+    background-color: #00296B;
+    border: 1px solid #00296B;
+    padding: 20px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.trips-page .card-header, .trips-page .card-details{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.trips-page a.select{
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    background-color: #FDC500;
+    color: #000000;
+    font-weight: bold;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.trips-page .bus-company{
+    font-size: 24px;
+    font-weight: bold;
+}
+.trips-page .bus-amenities{
+    font-size: 14px;
+}
+.trips-page .trip-price{
+    font-size: 16px;
+}
+.trips-page .select{
+    background-color: #FDC500;
+    color: #000000;
+    border: none;
+    font-weight: bold;
+    padding: 8px 16px;
+    cursor: pointer;
+}
+.trips-page .more-trips{
+    text-align: center;
+    margin-top: 30px;
+    font-style: italic;
+}
+
+body.trips-page{
+    min-height: 100vh;
+    background: #00296b;
+    color: #ffffff;
+}
+.trips-page .main-content{
+    display: grid;
+    grid-template-columns: 260px minmax(0, 1fr);
+    align-items: start;
+    gap: 28px;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 42px 24px 72px;
+}
+.trips-page .filters-sidebar{
+    box-sizing: border-box;
+    width: auto;
+    gap: 18px;
+    padding: 24px;
+    border: none;
+    border-radius: 16px;
+    background: #00296b;
+    color: #ffffff;
+    box-shadow: 0 8px 28px rgba(22, 43, 74, .06);
+}
+.filters-eyebrow{
+    line-height: 1.5;
+}
+.trips-page .filters-sidebar h2{
+    margin-top: -12px;
+    color: #ffffff;
+    font-size: 22px;
+    letter-spacing: -.5px;
+}
+.filters-copy{
+    margin-top: -12px;
+    color: #d3deed;
+    font-size: 13px;
+    line-height: 1.5;
+}
+.trips-page .filters{
+    gap: 8px;
+    padding-top: 15px;
+    border-top: none;
+}
+.trips-page .filters label{
+    margin: 0;
+    color: #ffffff;
+    font-size: 13px;
+}
+.trips-page .time-input input{
+    box-sizing: border-box;
+    min-height: 40px;
+    flex: 1;
+    border: 1px solid #dfe5ee;
+    border-radius: 7px;
+    color: #17243b;
+}
+.trips-page .option-list{
+    gap: 10px;
+    padding-left: 0;
+}
+.trips-page .option-list label{
+    color: #d3deed;
+    font-size: 13px;
+    font-weight: 400;
+}
+.trips-page .option-list input{
+    width: 15px;
+    height: 15px;
+    accent-color: #00296b;
+}
+.trips-page .apply{
+    min-height: 44px;
+    align-self: stretch;
+    margin-top: 0;
+    border-radius: 8px;
+    color: #00296b;
+    transition: background .2s ease, transform .2s ease;
+}
+.trips-page .apply:hover{
+    transform: translateY(-1px);
+    background: #e8b500;
+}
+.trips-page .trip-selection{
+    min-width: 0;
+}
+.trips-heading{
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    gap: 18px;
+    margin-bottom: 20px;
+}
+.trips-page .section-title{
+    margin: 6px 0 0;
+    color: #00296b;
+    font-size: clamp(26px, 3vw, 34px);
+    letter-spacing: -1px;
+    text-align: left;
+}
+.trip-count{
+    padding: 8px 12px;
+    border: 1px solid #e2e8f0;
+    border-radius: 999px;
+    background: #fff;
+    color: #62728a;
+    font-size: 12px;
+    font-weight: 700;
+}
+.trips-page .trips-list{
+    gap: 14px;
+}
+.trips-page .trip-card{
+    gap: 19px;
+    padding: 22px 24px;
+    border: none;
+    border-radius: 14px;
+    background: #00296b;
+    color: #ffffff;
+    box-shadow: 0 6px 20px rgba(22, 43, 74, .045);
+    transition: transform .2s ease, box-shadow .2s ease;
+}
+.trips-page .trip-card:hover{
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px rgba(22, 43, 74, .1);
+}
+.trips-page .card-header,
+.trips-page .card-details{
+    gap: 16px;
+}
+.trips-page .bus-company{
+    color: #ffffff;
+    font-size: 18px;
+}
+.trips-page .bus-amenities{
+    color: #d3deed;
+    font-size: 12px;
+}
+.trips-page .card-details{
+    padding-top: 16px;
+    border-top: none;
+}
+.trips-page .trip-price{
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 700;
+}
+.trips-page a.select{
+    padding: 11px 16px;
+    border-radius: 8px;
+    background: #fdc500;
+    color: #00296b;
+    font-size: 12px;
+    text-decoration: none;
+    transition: background .2s ease, transform .2s ease;
+}
+.trips-page a.select:hover{
+    transform: translateY(-1px);
+    background: #e8b500;
+}
+.trips-page .more-trips{
+    color: #d3deed;
+    font-size: 13px;
+}
+@media (max-width: 760px){
+    .trips-page .main-content{
+        grid-template-columns: 1fr;
+        gap: 22px;
+        padding: 26px 16px 48px;
+    }
+    .trips-page .filters-sidebar{
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+    .trips-page .filters-eyebrow,
+    .trips-page .filters-sidebar h2,
+    .trips-page .filters-copy,
+    .trips-page .apply{
+        grid-column: 1 / -1;
+    }
+    .trips-page .filters-sidebar h2,
+    .filters-copy{
+        margin-top: -10px;
+    }
+}
+@media (max-width: 520px){
+    .trips-page .filters-sidebar{
+        grid-template-columns: 1fr;
+        padding: 19px;
+    }
+    .trips-page .filters-eyebrow,
+    .trips-page .filters-sidebar h2,
+    .trips-page .filters-copy,
+    .trips-page .apply{
+        grid-column: auto;
+    }
+    .trips-heading{
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .trips-page .card-header,
+    .trips-page .card-details{
+        align-items: flex-start;
+        flex-direction: column;
+    }
+    .trips-page .trip-card{
+        padding: 19px;
+    }
+    .trips-page a.select{
+        width: 100%;
+    }
+}
