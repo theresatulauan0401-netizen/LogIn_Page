@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Express - Available Trips</title>
+
+    <link rel="stylesheet" href="../assets/css/modules/global.css">
+
+    <link rel="stylesheet" href="../assets/css/modules/trips.css">
+</head>
+    
+<body class="trips-page"> 
+    <header>
+        <!--top navigation -->
+        <div class="top-nav">
+            <div class="top-left">
+                <a href="contact.html">Contact</a>
+                <a href="terms.html">Terms</a>
+                <a href="policies.html">Policies</a>
+            </div>
+            <div class="top-right">
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            </div>
+            <nav class="main-bar">
+                <div class="logo">
+                    <img src="../assets/images/javabus.jpg" alt="Java Express Logo">
+                    <span>Java Express</span>
+                </div>
+                <div class="main-nav">
+                    <a href="../index.html">Home</a>
+                    <a href="managebooking.html">Manage Booking</a>
+                    <a href="help.html">Help</a>
+                    <a href="../login.html">Login</a>
+                    <a href="../signup.html">Sign Up</a>
+                </div>
+            </nav>
+            </header>
+
+            <!-- main content -->
+            <main class="main-content">
+
+            <!--Left Column: Filter Sidebar--> 
+            <aside class="filters-sidebar">
+                <h2>Filters</h2>
+
+            <div class="filters">
+                <label>Departure Time</label>
+                <div class="time-input">
+                    <span>Time:</span>
+                    <input type="time">
+                </div>
+            </div>
+
+            <div class="filters">
+                <label>Bus Type</label>
+                <div class="option-list">
+                    <label><input type="checkbox">Ordinary</label>
+                    <label><input type="checkbox">Air-Conditioned</label>
+                    <label><input type="checkbox">Deluxe</label>
+                    <label><input type="checkbox">Super Deluxe</label>
+                    <label><input type="checkbox">Royal Class</label>
+                </div>
+            </div>
+
+            <div class="filters">
+                <label>Amenities</label>
+                <div class="option-list">
+                    <label><input type="checkbox">Wifi</label>
+                    <label><input type="checkbox">Outlet</label>
+                    <label><input type="checkbox">Restroom</label>
+                </div>
+            </div>
+
+            <button class="apply">Apply Filter</button>
+        </aside>
+
+        <!--Right Column: Available Trip List-->
+        <section class="trip-selection">
+            <h2 class="section-title">AVALABLE TRIPS</h2>
+            <div class="trips-lists">
+
+                <!--Trip Card 1-->
+                <div class="trip-card">
+                    <div class="card-header">
+                        <span class="bus-company">Victory Liner</span>
+                        <span class="bus-amenities">Type: Luxury | Wifi | Restroom </span>
+                    </div>
+                    <div class="card-details">
+                        <span class="trip-price">8:00 am &rarr; 2:30 &nbsp;|&nbsp; &#8369; 750</span>
+                        <a href="busmap.html" class="select">SELECT SEATS</a>
+                    </div>
+                </div>
+
+                <!--Trip Card 2-->
+                <div class="trip-card">
+                    <div class="card-header">
+                        <span class="bus-company">Victory Liner</span>
+                        <span class="bus-amenities">Type: Luxury | Wifi | Restroom </span>
+                    </div>
+                    <div class="card-details">
+                        <span class="trip-price">8:00 am &rarr; 2:30 &nbsp;|&nbsp; &#8369; 750</span>
+                        <a href="busmap.html" class="select">SELECT SEATS</a>
+                    </div>
+                </div>
+
+                <!--Trip Card 3-->
+                <div class="trip-card">
+                    <div class="card-header">
+                        <span class="bus-company">Victory Liner</span>
+                        <span class="bus-amenities">Type: Luxury | Wifi | Restroom </span>
+                    </div>
+                    <div class="card-details">
+                        <span class="trip-price">8:00 am &rarr; 2:30 &nbsp;|&nbsp; &#8369; 750</span>
+                        <a href="busmap.html" class="select">SELECT SEATS</a>
+                    </div>
+                </div>
+
+                <!--Trip Card 4-->
+                <div class="trip-card">
+                    <div class="card-header">
+                        <span class="bus-company">Victory Liner</span>
+                        <span class="bus-amenities">Type: Luxury | Wifi | Restroom </span>
+                    </div>
+                    <div class="card-details">
+                        <span class="trip-price">8:00 am &rarr; 2:30 &nbsp;|&nbsp; &#8369; 750</span>
+                        <a href="busmap.html" class="select">SELECT SEATS</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <p class="more-trips">...More trips listed...</p>
+
+        </section>
+
+        </main>
+    </body>
+</html>

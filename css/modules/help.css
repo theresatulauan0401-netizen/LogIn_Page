@@ -1,0 +1,94 @@
+body.help-page{
+  background-color: #ffffff;
+  color: #000000;
+}
+.help{
+  width: 100%;
+  background-color: #00296b;
+  padding: 50px 0;
+  border-bottom: 1px solid #cccccc;
+}
+.container{
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.help .sub{
+  font-size: 14px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+.help h1{
+  font-size: 42px;
+  font-weight: bold;
+  color: #ffffff;;
+  margin-bottom: 15px;
+  max-width: 750px;
+}
+.help .description{
+  font-size: 16px;
+  color: #ffffff;
+}
+.help-content{
+  display: flex;
+  align-items: flex-start;
+  max-width: 1000px;
+  margin: 30px auto;
+  padding: 0 20px;
+  gap: 40px;
+}
+.nav-sidebar{
+  width: 220px;
+  background-color: #ffffff;
+  padding: 20px;
+  box-sizing: border-box;
+}
+.nav-sidebar h3{
+  font-size: 13px;
+  color: #ffffff;
+  margin-bottom: 15px;
+}
+.nav-sidebar ul{
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+}
+.nav-sidebar a{
+  color: #000000;
+  font-size: 13px;
+  font-weight: bold;
+  text-decoration: none;
+  display: block;
+}
+.nav-sidebar a:hover{
+  text-decoration: underline;
+}
+.policy-details{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.policy-card{
+  background-color: #ffffff;
+  border: 1px solid #00296b;
+  padding: 25px 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.card-number{
+  font-size: 18px;
+  font-weight: bold;
+  color: #000000;
+}
+.policy-card h2{
+  font-size: 28px;
+  font-weight: bold;
+  color: #000000;
+}
+.policy-card p{
+  font-size: 13px;
+  color: #ffffff;
+}
