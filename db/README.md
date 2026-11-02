@@ -1,107 +1,44 @@
-# Hope, Inc. ERP: Database Setup (no Docker)
+# Team Project Database
 
-Maintained by the DB Admin. This guide gets you from nothing to a working
-local PostgreSQL database that matches the team's migrations.
+## Prerequisites
+- PostgreSQL 15+ (https://www.postgresql.org/download/) — remember the password you set for the `postgres` user
+- Git (Windows users: use **Git Bash** for all commands below)
+- Make sure `psql` works: run `psql --version`
 
-> The Hope database script (HopeDB_audit.sql) uses PostgreSQL features
-> (JSONB, plpgsql triggers), so the team database is **PostgreSQL**, not MySQL.
+## Setup (first time only)
+1. Clone the repo:
+   git clone https://github.com/<org>/project-db.git
+   cd project-db
+2. Create your env file:
+   cp .env.example .env
+   Then open `.env` and set your own DB_PASSWORD.
+3. Create the database:
+   createdb -U postgres team_project
+4. Run migrations:
+   ./db/migrate.sh
+5. (Optional) Load sample data:
+   psql -U postgres -d team_project -f db/seeds/sample_data.sql
 
-## What you need
+## Daily workflow
+- Before you start working: `git pull` then `./db/migrate.sh`
+- Verify: `psql -U postgres -d team_project -c "\dt"`
 
-- **PostgreSQL 14 or newer** (includes the `psql` command-line client)
-- **Python 3.8+** (the runner uses only the standard library, so no `pip install`)
-- **Git**
+## Making a schema change
+1. Create a NEW file in `db/migrations/` named `YYYYMMDD_HHMM_description.sql`
+2. Write only the change (e.g. `ALTER TABLE users ADD COLUMN phone VARCHAR(20);`)
+3. Run `./db/migrate.sh` to test locally
+4. Commit and push, then open a Pull Request
 
-## 1. Install PostgreSQL
-
-1. Download the installer from postgresql.org/download and run it.
-2. During install, set a **password for the `postgres` user** and remember it.
-   Keep the default port **5432**.
-3. Make sure the `psql` command works. Open a new terminal and run:
-
-   ```
-   psql --version
-   ```
-
-   If it says "command not found", add PostgreSQL's `bin` folder to your PATH.
-   On Windows this is usually `C:\Program Files\PostgreSQL\16\bin`.
-
-## 2. Configure your local connection
-
-From the repo root:
-
-```
-copy db\.env.example db\.env        (Windows)
-cp db/.env.example db/.env          (Mac / Linux)
-```
-
-Open `db/.env` and fill in your own values, mainly `DB_PASSWORD`.
-**`db/.env` is ignored by Git. Never commit it and never share your password.**
-
-| Setting | Default | Meaning |
-|---|---|---|
-| DB_HOST | localhost | where PostgreSQL runs |
-| DB_PORT | 5432 | PostgreSQL port |
-| DB_USER | postgres | your PostgreSQL user |
-| DB_PASSWORD | (empty) | your PostgreSQL password |
-| DB_NAME | hope_erp | database the project uses |
-
-## 3. Build the database
-
-```
-python db/scripts/migrate.py
-```
-
-This creates the `hope_erp` database if needed, then runs every file in
-`db/migrations/` in number order. Each file runs in one transaction: if
-anything fails, that file is rolled back completely. Re-running is safe:
-files that were already applied are skipped.
-
-| Command | What it does |
-|---|---|
-| `python db/scripts/migrate.py` | apply pending migrations |
-| `python db/scripts/migrate.py --status` | list applied and pending migrations |
-| `python db/scripts/migrate.py --reset` | **drop** the database and rebuild it (asks you to confirm; development only) |
-
-After pulling new work from the team, run the migrate command again to stay in sync.
-
-## What is in the migrations
-
-| File | Contents |
-|---|---|
-| `001_hope_base_tables.sql` | the 10 Hope tables (employee, department, job, jobHistory, customer, product, priceHist, sales, salesDetail, payment) and their sample data |
-| `002_audit_and_soft_delete.sql` | `is_deleted` and `stamp` columns, `audit_log`, triggers (stamp, history, no hard delete, delete-blocked-by-children) and the `<table>_active` views |
-
-## Check that it worked
-
-```
-psql -U postgres -d hope_erp -c "SELECT count(*) FROM employee_active;"
-psql -U postgres -d hope_erp -c "SELECT table_name, action, action_by FROM audit_log LIMIT 5;"
-```
-
-The first should return 32 employees. Try a soft delete and see the stamp change:
-
-```
-UPDATE employee SET is_deleted = true WHERE empno = '00015';
-SELECT empno, is_deleted, stamp FROM employee WHERE empno = '00015';
-```
-
-## Migration rules
-
-1. **Name files `NNN_short_description.sql`**, for example `003_users_and_rights.sql`.
-2. **Never edit a migration after it is merged.** The runner stops with an error if
-   an applied file has changed. Add a new numbered file instead.
-3. **No two files may share a number.** Tell the team which number you are taking.
-4. **No passwords or real data in migrations or seed files.** First passwords are
-   set through a one-time set-password link.
-5. **Test from scratch before opening a PR:** run `--reset` and confirm everything builds.
+## Rules
+- NEVER edit or delete a migration that's already been merged. Add a new one instead.
+- NEVER commit `.env` or passwords.
+- One logical change per migration file.
 
 ## Troubleshooting
-
 | Problem | Fix |
 |---|---|
-| `The 'psql' command was not found` | Add PostgreSQL's `bin` folder to PATH, then open a new terminal |
-| `password authentication failed` | Check `DB_USER` and `DB_PASSWORD` in `db/.env` |
-| `connection refused` | Start the PostgreSQL service; check `DB_HOST` and `DB_PORT` |
-| `database is being accessed by other users` | Close pgAdmin/psql windows connected to it, then retry |
-| `Two migrations share the number` | Rename your newer file with the next free number |
+| `psql: command not found` | Add PostgreSQL's `bin` folder to your PATH |
+| `password authentication failed` | Check DB_PASSWORD in `.env` |
+| `database does not exist` | Run step 3 again |
+| `permission denied: ./db/migrate.sh` | `chmod +x db/migrate.sh` |
+| A migration failed halfway | Fix the SQL file (if not yet merged) and rerun; it rolls back automatically |
