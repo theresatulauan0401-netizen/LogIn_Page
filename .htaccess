@@ -1,0 +1,10 @@
+# Convenience for XAMPP when the project sits in htdocs/bus-reservation-system.
+# Everything is served from /public; app/, config/, storage/, scripts/ etc.
+# become unreachable from the browser. A dedicated VirtualHost with
+# DocumentRoot ".../public" is still the recommended setup (see README).
+Options -Indexes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteRule ^$ public/ [L]
+  RewriteRule ^(?!public/)(.*)$ public/$1 [L]
+</IfModule>
